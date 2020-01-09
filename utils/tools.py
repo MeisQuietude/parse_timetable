@@ -20,6 +20,11 @@ def get_next_monday():
 
 
 def fix_xlsx(in_file):
+    """Because of a bug
+
+    Arguments:
+        in_file {Path} -- Path to a XLSX file
+    """
     zin = zipfile.ZipFile(in_file, "r")
     if "xl/SharedStrings.xml" in zin.namelist():
         tmpfd, tmp = tempfile.mkstemp(dir=os.path.dirname(in_file))
