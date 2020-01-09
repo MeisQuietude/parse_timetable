@@ -30,10 +30,14 @@ path.mkdir(parents=True, exist_ok=True)
 path1 = Path(".", DST_DIR, folder, filename1)
 path2 = Path(".", DST_DIR, folder, filename2)
 
-with open(path1, "wb") as f:
-    f.write(get_binary(uri1))
-with open(path2, "wb") as f:
-    f.write(get_binary(uri2))
+try:
+    with open(path1, "wb") as f:
+        f.write(get_binary(uri1))
+    with open(path2, "wb") as f:
+        f.write(get_binary(uri2))
+except Exception as e:
+    input(e)
+    exit()
 
 data = []
 
